@@ -1,0 +1,32 @@
+@import "./mixins.scss";
+
+@mixin navigation {
+  @include flex-div(space-evenly);
+  gap: 40px;
+  background-color: $bar-background;
+  height: auto;
+  width: 100%;
+  .company-logo {
+    h1 {
+      @include rainbow-gradient;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .navbar {
+    @include flex-div(flex-end);
+    display: inherit;
+    gap: 20px;
+    padding: 1%;
+
+    a {
+      color: $text-secondary-color;
+      text-decoration: none;
+      padding: 10px;
+      border: 1px solid $border-color-nav;
+      border-radius: 5px;
+    }
+  }
+}

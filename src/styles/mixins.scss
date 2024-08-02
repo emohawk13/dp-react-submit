@@ -1,5 +1,20 @@
-@mixin center-flex {
+@import "./colors.scss";
+
+@mixin rainbow-gradient($direction: to right) {
+  background: linear-gradient(
+    $direction,
+    map-get($rainbow-colors, red),
+    map-get($rainbow-colors, orange),
+    map-get($rainbow-colors, yellow),
+    map-get($rainbow-colors, green),
+    map-get($rainbow-colors, blue),
+    map-get($rainbow-colors, indigo),
+    map-get($rainbow-colors, violet)
+  );
+}
+
+@mixin flex-div($jc: center, $al: center) {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: $jc;
+  align-items: $al;
 }

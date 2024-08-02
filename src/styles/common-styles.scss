@@ -1,102 +1,24 @@
-@import "./side-bar.scss";
-@import "./mixins.scss";
+@import "./nav-styles.scss";
+@import "./card-styles.scss";
 @import "./colors.scss";
 
 html,
 body {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-.container {
-  display: flex;
+.navigation {
+  @include navigation;
 }
 
-.sidebar {
-  @include sidebar-content;
+.profile-cards {
+  @include profile-cards;
 }
 
-.main-page {
-  width: 100%;
-  overflow: hidden;
-  .main-content {
-    height: 80vh;
-    width: 100%;
-    background-color: $container-background-color-1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-
-    .header,
-    .subheader,
-    .content-block,
-    .image-block,
-    .footer {
-      background-color: $container-background-color-2;
-      border: 1px solid $border-color-generic;
-      margin-bottom: 10px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .header,
-    .subheader {
-      width: 70%;
-    }
-
-    .main-content-block {
-      @include center-flex;
-      height: 150px;
-      width: 80%;
-    }
-
-    .image {
-      @include center-flex;
-      text-justify: center;
-      width: 60%;
-      height: 5%;
-      background-color: $container-background-color-2;
-      border: 1px solid $border-color-generic;
-      margin-bottom: 20px;
-    }
-
-    .content-container {
-      display: flex;
-      justify-content: space-between;
-      width: 85%;
-      .content-section {
-        width: 100%;
-        padding-bottom: 1%;
-        .content,
-        .image-content {
-          @include center-flex;
-          background-color: $container-background-color-2;
-          border: 1px solid $border-color-generic;
-          padding: 10%;
-        }
-      }
-    }
-    .button {
-      background-color: $container-background-color-2;
-      padding: 2% 4%;
-      border-radius: 5%;
-    }
-  }
-  .footer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .social-media-icons,
-    .copyright {
-      background-color: $container-background-color-2;
-      border: 1px solid $border-color-generic;
-      padding: 10px;
-      margin-top: 10px;
-      width: 80%;
-      text-align: center;
-    }
-  }
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: $bar-background;
+  color: $text-secondary-color;
 }

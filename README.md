@@ -1,12 +1,19 @@
 set to react 17.0.2
 
-# Assignment - Web App Replication
+Part I
+Create a react application that displays profile cards. In this profile card application include the following:
 
-Use the layout provided a news article or blog page in React with the following:
+Create mock data in an object (collection)
+Retrieve the information and manually pass it to each profile card
+Determine whatever information you would like to present in these
+Part II
+Create an app that replicates the design provided.
 
-Mimic the layout following good component architecture principles.
-Nothing needs to be functional and all information can be filler
-Use CSS to style it nicely (SCSS for extra challange)
-Choose your own color scheme (use the color tools mentioned in the CSS Overview for additional support)
-Isolate each part of the page into its own component
-Import the multiple components into one component
+Choose your own color scheme and styling for the replication including:
+Image should be bordered in a circle
+Border around the description
+Descriptive logo has a top and bottom border
+Bordered Nav links (dead links)
+Footer with copyright information that includes your name
+Try to render each profile card's information from a mock data object:
+An action button should console.log a value

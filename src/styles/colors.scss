@@ -1,5 +1,22 @@
-$container-background-color-1: #595959;
-$container-background-color-2: white;
-$sidebar-color-background: #aad4f5;
+$text-secondary-color: white;
 
-$border-color-generic: black;
+$border-color-nav: green;
+$border-color-primary: black;
+
+$bar-background: #333;
+$card-background: #d0e6f5;
+$profile-background: grey;
+$profile-detail-background: white;
+
+$button-background: #007bff;
+$button-hover: #0056b3;
+
+$rainbow-colors: (
+  red: red,
+  orange: orange,
+  yellow: yellow,
+  green: green,
+  blue: blue,
+  indigo: indigo,
+  violet: violet,
+);
