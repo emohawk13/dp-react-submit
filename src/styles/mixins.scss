@@ -1,20 +1,95 @@
-@import "./colors.scss";
+@import "colors.scss";
 
-@mixin rainbow-gradient($direction: to right) {
-  background: linear-gradient(
-    $direction,
-    map-get($rainbow-colors, red),
-    map-get($rainbow-colors, orange),
-    map-get($rainbow-colors, yellow),
-    map-get($rainbow-colors, green),
-    map-get($rainbow-colors, blue),
-    map-get($rainbow-colors, indigo),
-    map-get($rainbow-colors, violet)
-  );
+@mixin grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
-@mixin flex-div($jc: center, $al: center) {
+@mixin card {
   display: flex;
-  justify-content: $jc;
-  align-items: $al;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  .card-content {
+    background-color: $card-backgound;
+    display: inherit;
+    flex-direction: column;
+    width: 80%;
+    height: auto;
+    border: 1px solid $border-color;
+    border-radius: 10px;
+    padding: 2%;
+    margin: 2% 0;
+    text-align: center;
+  }
+}
+
+// @mixin main {
+//   @include grid >.widgets
+// }
+
+@mixin generic_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .button {
+    width: 50%;
+    height: 30px;
+    color: $text-secondary-color;
+    background-color: $generic-button-color;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: $generic-button-hover;
+    }
+  }
+}
+
+@mixin button-container(
+  $button-1: $test-color-1,
+  $button-optional-color: $test-color-2
+) {
+  @include grid;
+  .button {
+    width: 100%;
+    padding: 2%;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: $button-1;
+    color: $text-secondary-color;
+    &:hover {
+      background-color: $button-optional-color;
+    }
+
+    &.inc-button {
+      background-color: $counter-inc-button;
+      color: $text-secondary-color;
+    }
+
+    &.dec-button {
+      background-color: $button-optional-color;
+      color: $text-secondary-color;
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    }
+  }
 }

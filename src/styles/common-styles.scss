@@ -1,22 +1,35 @@
-@import "./nav-styles.scss";
-@import "./card-styles.scss";
 @import "./colors.scss";
+@import "./mixins.scss";
 
 html,
 body {
   margin: 0;
   padding: 0;
+  background-color: $primary-background;
 }
 
-.navigation {
-  @include navigation;
-}
+.widgets {
+  @include card;
+  .card-content {
+    .counter > .button-container {
+      @include button-container($counter-inc-button, $counter-dec-button);
+    }
+    .greeting-container {
+      @include generic_button;
+    }
 
-.profile-cards {
-  @include profile-cards;
+    .toggle-widget {
+      @include generic_button;
+    }
+
+    .font-size-adjuster > .button-container {
+      @include button-container($generic-button-color, $generic-button-hover);
+    }
+  }
 }
 
 .footer {
+  width: 100%;
   text-align: center;
   padding: 20px;
   background-color: $bar-background;
