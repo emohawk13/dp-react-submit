@@ -37,13 +37,17 @@
 //   @include grid >.widgets
 // }
 
-@mixin generic_button {
+@mixin generic_button(
+  $direction: column,
+  $justify: center,
+  $standard-width: 50%
+) {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: $justify;
+  flex-direction: $direction;
   .button {
-    width: 50%;
+    width: $standard-width;
     height: 30px;
     color: $text-secondary-color;
     background-color: $generic-button-color;
@@ -92,4 +96,60 @@
       }
     }
   }
+}
+
+@mixin alignment-container {
+  .alignment-buttons {
+    @include generic_button(row, space-between, 25%);
+    padding: 5%;
+  }
+
+  .text-content {
+    padding: 1%;
+    border: 1px solid #ccc;
+
+    &.left {
+      text-align: left;
+    }
+
+    &.center {
+      text-align: center;
+    }
+
+    &.right {
+      text-align: right;
+    }
+  }
+}
+
+@mixin clock-widget {
+  @include generic_button();
+  .clock-display {
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+@mixin color-changer {
+  input {
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 2%;
+  }
+  @include generic_button();
+}
+
+@mixin color-box {
+  @include generic_button();
+  label {
+    width: 30px;
+  }
+
+  input[type="range"] {
+    flex: 1;
+  }
+}
+
+@mixin weather {
+  @include generic_button();
 }

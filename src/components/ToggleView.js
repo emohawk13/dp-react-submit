@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/common-styles.scss";
-import Button from "./utilityComponents/Button";
+import Button from "./Button";
 
 const ToggleView = () => {
   const [isVisible, setIsVisible] = useState(true);

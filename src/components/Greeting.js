@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "./utilityComponents/Button";
+import Button from "./Button";
 import "../styles/common-styles.scss";
 
 const Greeting = () => {

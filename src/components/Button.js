@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../../styles/common-styles.scss";
+import "../styles/common-styles.scss";
 
 const Button = ({ label, onClick, disabled, className }) => {
   return (

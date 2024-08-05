@@ -25,6 +25,21 @@ body {
     .font-size-adjuster > .button-container {
       @include button-container($generic-button-color, $generic-button-hover);
     }
+    .text-alignment-widget {
+      @include alignment-container;
+    }
+    .clock-widget {
+      @include clock-widget();
+    }
+    .color-changing-widget {
+      @include color-changer;
+    }
+    .rgb-color-widget {
+      @include color-box;
+    }
+    .weather-widget {
+      @include weather;
+    }
   }
 }
 
