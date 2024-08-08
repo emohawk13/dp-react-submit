@@ -8,45 +8,122 @@ body {
   background-color: $primary-background;
 }
 
-.widgets {
-  @include card;
-  .card-content {
-    .counter > .button-container {
-      @include button-container($counter-inc-button, $counter-dec-button);
-    }
-    .greeting-container {
-      @include generic_button;
-    }
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: $primary-background;
 
-    .toggle-widget {
-      @include generic_button;
-    }
+  h2 {
+    color: $text-secondary-color;
+    margin-bottom: 20px;
+  }
 
-    .font-size-adjuster > .button-container {
-      @include button-container($generic-button-color, $generic-button-hover);
+  input {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    background-color: $card-backgound;
+    font-size: 16px;
+  }
+
+  button {
+    width: 300px;
+    padding: 10px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: $generic-button-color;
+    color: $text-secondary-color;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $generic-button-hover;
     }
-    .text-alignment-widget {
-      @include alignment-container;
-    }
-    .clock-widget {
-      @include clock-widget();
-    }
-    .color-changing-widget {
-      @include color-changer;
-    }
-    .rgb-color-widget {
-      @include color-box;
-    }
-    .weather-widget {
-      @include weather;
-    }
+  }
+
+  p {
+    color: $counter-dec-button;
+    margin-top: 10px;
   }
 }
 
-.footer {
-  width: 100%;
-  text-align: center;
-  padding: 20px;
-  background-color: $bar-background;
-  color: $text-secondary-color;
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  .navbar {
+    background-color: $bar-background;
+    padding: 10px;
+
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+      margin: 0;
+      align-items: center;
+
+      li {
+        color: $text-secondary-color;
+        cursor: pointer;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $generic-button-hover;
+        }
+      }
+
+      .logout {
+        background-color: $generic-button-color;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: $text-secondary-color;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $generic-button-hover;
+        }
+      }
+    }
+  }
+  .widgets {
+    width: 90%;
+    .card-content {
+      @include card;
+      .counter > .button-container {
+        @include button-container($counter-inc-button, $counter-dec-button);
+      }
+      .greeting-container,
+      .toggle-widget,
+      .font-size-adjuster > .button-container,
+      .text-alignment-widget,
+      .clock-widget,
+      .color-changing-widget,
+      .rgb-color-widget,
+      .weather-widget {
+        @include generic_button;
+      }
+      .text-alignment-widget {
+        @include alignment-container;
+      }
+    }
+  }
+  .footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: $bar-background;
+    color: $text-secondary-color;
+  }
 }

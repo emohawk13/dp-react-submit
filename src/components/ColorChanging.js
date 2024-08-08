@@ -17,7 +17,7 @@ const ColorChangerWidget = () => {
 
   return (
     <div className="color-changing-widget">
-      <h1 style={{ color: color }}>Change My Color</h1>
+      <h3 style={{ color: color }}>Change My Color</h3>
       <input
         type="text"
         value={inputValue}
