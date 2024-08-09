@@ -74,3 +74,24 @@ A description of the widget, its purpsoe and instructions on its use
 Login/Logout
 A login through custom api
 A logout
+
+refactor comments:
+counter - directly altering state. use an arrow function with the previous value. look in the curriculum
+
+clock - mounts with the last value before unmounting
+
+alignment - you can avoid the infinite renders by placing the arrow function in the jsx onClick synthetic event. This is more standard in our dev shop. However, you answer still works. You choose whether to change or not.
+
+color - doesn't take color with two words i.e. dodger blue or dark red
+weather - fetching every time the state changes
+
+clock - this is a great additional challenge. The requirements ask for the clock component to be a class component that works with the component lifecycle.
+
+button - is a nice choice for making all buttons behave the same. it might be more work than just create a button manually in jsx. Well done, nevertheless.
+
+Additional challenges -
+counter - consolidate to one function that can run all of the count changing. Af that, refactor and change it to a single line arrow function with a ternary.
+
+adjustsize - make it so the buttons don't move in response to the font adjustment
+
+Great progress. Let me know if you have any questions. Re-submit when ready.

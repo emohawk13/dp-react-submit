@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../styles/common-styles.scss";
 
 const RGBSliderWidget = () => {
   const [r, setR] = useState(0);
@@ -15,7 +14,7 @@ const RGBSliderWidget = () => {
   return (
     <div className="rgb-slider-widget">
       <div className="color-box" style={{ backgroundColor: rgbColor }}>
-        {rgbColor}
+        <h2>{rgbColor}</h2>
       </div>
       <div className="sliders">
         <div className="slider">

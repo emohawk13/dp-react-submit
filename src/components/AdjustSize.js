@@ -6,25 +6,32 @@ const AdjustSize = () => {
   const [fontSize, setFontSize] = useState(16);
   const minSize = 0;
   const maxSize = 100;
+
   const increaseFontSize = () => {
-    setFontSize((prevSize) => Math.min(prevSize + 2, maxSize));
+    setFontSize((prevSize) => Math.min(prevSize + 5, maxSize));
   };
 
   const decreaseFontSize = () => {
-    setFontSize((prevSize) => Math.max(prevSize - 2, minSize));
+    setFontSize((prevSize) => Math.max(prevSize - 5, minSize));
   };
 
   return (
     <div className="font-size-adjuster">
-      <p className="adjustable-text" style={{ fontSize: `${fontSize}px` }}>
-        Adjust my size!
-      </p>
+      <div className="adjustable-text-container">
+        <p className="adjustable-text" style={{ fontSize: `${fontSize}px` }}>
+          Adjust my size!
+        </p>
+      </div>
       <div className="button-container">
-        <Button label="Grow" onClick={increaseFontSize} className="button-1" />
+        <Button
+          label="Grow"
+          onClick={increaseFontSize}
+          className="button-adjuster"
+        />
         <Button
           label="Shrink"
           onClick={decreaseFontSize}
-          className="button-2"
+          className="button-adjuster"
         />
       </div>
     </div>

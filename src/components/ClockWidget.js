@@ -1,38 +1,65 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
 import "../styles/common-styles.scss";
 import Button from "./Button";
 
-const Clock = () => {
-  const [isMounted, setIsMounted] = useState(false);
-  const [time, setTime] = useState(new Date().toLocaleTimeString());
+class Clock extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isMounted: false,
+      time: new Date().toLocaleTimeString(),
+    };
+    this.timer = null;
+  }
 
-  useEffect(() => {
-    let timer;
-    if (isMounted) {
-      timer = setInterval(() => {
-        setTime(new Date().toLocaleTimeString());
-      }, 1000);
-    } else {
-      clearInterval(timer);
+  componentDidMount() {
+    if (this.state.isMounted) {
+      this.startClock();
     }
+  }
 
-    return () => clearInterval(timer);
-  }, [isMounted]);
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.isMounted !== this.state.isMounted) {
+      if (this.state.isMounted) {
+        this.startClock();
+      } else {
+        this.stopClock();
+      }
+    }
+  }
 
-  const toggleMount = () => {
-    setIsMounted(!isMounted);
+  componentWillUnmount() {
+    this.stopClock();
+  }
+
+  startClock = () => {
+    this.timer = setInterval(() => {
+      this.setState({ time: new Date().toLocaleTimeString() });
+    }, 1000);
   };
 
-  return (
-    <div className="clock-widget">
-      <Button
-        label={isMounted ? "Unmount Clock" : "Mount Clock"}
-        onClick={toggleMount}
-        className="clock-toggle-button"
-      />
-      {isMounted && <div className="clock-display">{time}</div>}
-    </div>
-  );
-};
+  stopClock = () => {
+    clearInterval(this.timer);
+  };
+
+  toggleMount = () => {
+    this.setState((prevState) => ({ isMounted: !prevState.isMounted }));
+  };
+
+  render() {
+    const { isMounted, time } = this.state;
+
+    return (
+      <div className="clock-widget">
+        <Button
+          label={isMounted ? "Unmount Clock" : "Mount Clock"}
+          onClick={this.toggleMount}
+          className="clock-toggle-button"
+        />
+        {isMounted && <div className="clock-display">{time}</div>}
+      </div>
+    );
+  }
+}
 
 export default Clock;

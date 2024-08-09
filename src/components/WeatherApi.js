@@ -5,10 +5,11 @@ import Button from "./Button";
 const WeatherWidget = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState("Vernal");
+  const [fetchCity, setFetchCity] = useState("Vernal");
 
   useEffect(() => {
-    fetchWeatherData(city);
-  }, [city]);
+    fetchWeatherData(fetchCity);
+  }, [fetchCity]);
 
   const fetchWeatherData = async (city) => {
     try {
@@ -23,6 +24,10 @@ const WeatherWidget = () => {
 
   const handleCityChange = (event) => {
     setCity(event.target.value);
+  };
+
+  const handleFetchWeather = () => {
+    setFetchCity(city);
   };
 
   return (
@@ -45,7 +50,7 @@ const WeatherWidget = () => {
       />
       <Button
         label="Get Weather"
-        onClick={() => fetchWeatherData(city)}
+        onClick={handleFetchWeather}
         className="weather-button"
       />
     </div>

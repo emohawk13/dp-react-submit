@@ -61,10 +61,15 @@ body {
   justify-content: center;
   overflow: hidden;
   .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: $bar-background;
     padding: 10px;
+    width: 100%;
 
     ul {
+      width: 80%;
       list-style: none;
       display: flex;
       justify-content: space-between;
@@ -110,12 +115,28 @@ body {
       .text-alignment-widget,
       .clock-widget,
       .color-changing-widget,
-      .rgb-color-widget,
       .weather-widget {
         @include generic_button;
       }
       .text-alignment-widget {
         @include alignment-container;
+      }
+      .font-size-adjuster {
+        @include size-adjuster;
+      }
+      .color-changing-widget {
+        @include color-changer;
+      }
+      .rgb-slider-widget {
+        width: 100%;
+        height: 200px;
+        @include color-box;
+      }
+      .weather-widget {
+        input[type="text"] {
+          text-align: center;
+          padding: 1%;
+        }
       }
     }
   }
