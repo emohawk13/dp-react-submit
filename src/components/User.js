@@ -26,7 +26,7 @@ const User = () => {
   }, [id]);
 
   const handleAboutClick = async () => {
-    if (loading || !user) return;
+    if (loading || details) return;
 
     setLoading(true);
     try {
@@ -53,30 +53,21 @@ const User = () => {
         {user ? (
           <div>
             <h1>{user.name}</h1>
-            <button onClick={handleAboutClick} disabled={loading}>
-              {loading ? "Loading..." : "About"}
-            </button>
-            <button onClick={() => navigate("/")}>Go Home</button>
-            {loading ? (
-              <div className="loading-details">
-                <div className="loading-item"></div>
-                <div className="loading-item"></div>
-                <div className="loading-item"></div>
+            {details ? (
+              <div>
+                {homePlanet && <p>Home Planet: {homePlanet}</p>}
+                <p>Description: {details.description}</p>
+                <p>Eye Color: {details.eye_color}</p>
+                <p>Birth Year: {details.birth_year}</p>
+                <p>Gender: {details.gender}</p>
+                <p>Hair Color: {details.hair_color}</p>
               </div>
             ) : (
-              <>
-                {homePlanet && <p>Home Planet: {homePlanet}</p>}
-                {details && (
-                  <div>
-                    <p>Description: {details.description}</p>
-                    <p>Eye Color: {details.eye_color}</p>
-                    <p>Birth Year: {details.birth_year}</p>
-                    <p>Gender: {details.gender}</p>
-                    <p>Hair Color: {details.hair_color}</p>
-                  </div>
-                )}
-              </>
+              <button onClick={handleAboutClick} disabled={loading || details}>
+                {loading ? "Loading..." : "About"}
+              </button>
             )}
+            <button onClick={() => navigate("/")}>Go Home</button>
           </div>
         ) : (
           <p>Loading user...</p>
